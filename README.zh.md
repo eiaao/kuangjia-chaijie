@@ -1,5 +1,11 @@
 # kuangjia-chaijie · 框架主题深度拆解工作流
 
+**写之前，先把框架真正读懂——完整、清晰、不漏地理解一个跨模块主题。**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](https://docs.claude.com/en/docs/claude-code)
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
+
 [English](./README.md) | 中文
 
 > **这个 skill 不输出文章，它输出"完整、可口头复述的理解"。**

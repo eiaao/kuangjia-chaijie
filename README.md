@@ -1,5 +1,11 @@
 # kuangjia-chaijie · Framework Topic Decomposition Workflow
 
+**Understand a framework deeply — completely and gap-free — before you write or present about it.**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-skill-d97757.svg)](https://docs.claude.com/en/docs/claude-code)
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
+
 English | [中文](./README.zh.md)
 
 > **This skill does not output an article. It outputs "complete, out-loud-recountable understanding."**
