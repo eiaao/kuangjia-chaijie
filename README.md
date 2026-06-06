@@ -50,7 +50,7 @@ This skill counters them with an agentic pipeline: **top-down (project mental-mo
 | **1 Panorama (A+B)** | Mental model + symbol heatmap + cross-check + panorama + reverse coverage + blind-spot review | `01-*.md` | 5–9 modules, ≥2 Mermaid diagrams, subagent-verified, user sign-off |
 | **2 Per-module deep dive** | A "7-element card + design trade-offs + retro" per module | `02-S{n}-{slug}.md` (one each) | All 10 blocks filled, lifecycle diagram, subagent-verified |
 | **3 Re-unification** | v0→v1, architecture diagram, cross-module patterns, cross-card conflicts, upstream backfill | `03-synthesis.md` | One-sentence essence, ≥2 cross-module patterns, conflicts explicitly resolved, backfill table processed |
-| **4 Evolution archaeology (optional)** | Pick modules by interest; funnel-style git archaeology of "how it became what it is" | `04-evolution-{slug}.md` | Timeline diagram + inflection points with commit hashes + why, stability annotations |
+| **4 Evolution archaeology (optional)** | Pick modules by interest; funnel-style git archaeology of "how it became what it is" | `04-evolution-S{n}-{slug}.md` | Timeline diagram + inflection points with commit hashes + why, stability annotations |
 
 ---
 
