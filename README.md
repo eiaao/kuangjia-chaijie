@@ -21,7 +21,7 @@ For anyone preparing a tech talk, a deep-dive article, or a team session: before
 Three failure modes dominate when reading framework source:
 
 1. **Guessing** — filling gaps with "usually / typically / by convention" from training-data patterns, which often differ from how *this* project is actually implemented.
-2. **Missing** — the topic spans modules; a top-down scan based on current understanding can't catch subsystems hidden mid-file in a large file, or on a background path off the main loop.
+2. **Missing** — the topic spans modules; a top-down scan based on current understanding can't catch modules hidden mid-file in a large file, or on a background path off the main loop.
 3. **Drifting** — shallow reads produce shallow conclusions, and self-review skips over what you already wrote, so errors survive to the end.
 
 This skill counters them with an agentic pipeline: **top-down (project mental-model scan) + bottom-up (symbol back-tracing) in tandem**, mandatory human-in-the-loop checkpoints for scope, hard exit criteria per phase, and cross-verification of every phase's output by a **clean-context subagent** against the source.
@@ -33,7 +33,7 @@ This skill counters them with an agentic pipeline: **top-down (project mental-mo
 ✅ Use it when
 - Preparing a tech talk / article / team session but not yet on top of the topic
 - The topic spans multiple modules (not explainable from a single file)
-- You want "complete, no gaps" understanding of a subsystem
+- You want "complete, no gaps" understanding of a module
 
 ❌ Don't use it for
 - Single-file / single-function questions → just Read / Grep
@@ -47,10 +47,10 @@ This skill counters them with an agentic pipeline: **top-down (project mental-mo
 | Phase | What | Output | Exit gate (excerpt) |
 |---|---|---|---|
 | **0 Seeding** | Turn a fuzzy topic word into a "seed card" | `00-seed.md` | ≥5 keywords, ≥2 explicit exclusions |
-| **1 Panorama (A+B)** | Mental model + symbol heatmap + cross-check + panorama + reverse coverage + blind-spot review | `01-*.md` | 5–9 subsystems, ≥2 Mermaid diagrams, subagent-verified, user sign-off |
-| **2 Per-subsystem deep dive** | A "7-element card + design trade-offs + retro" per subsystem | `02-{slug}.md` (one each) | All 10 blocks filled, lifecycle diagram, subagent-verified |
-| **3 Re-unification** | v0→v1, architecture diagram, cross-subsystem patterns, cross-card conflicts, upstream backfill | `03-synthesis.md` | One-sentence essence, ≥2 cross-subsystem patterns, conflicts explicitly resolved, backfill table processed |
-| **4 Evolution archaeology (optional)** | Pick subsystems by interest; funnel-style git archaeology of "how it became what it is" | `04-evolution-{slug}.md` | Timeline diagram + inflection points with commit hashes + why, stability annotations |
+| **1 Panorama (A+B)** | Mental model + symbol heatmap + cross-check + panorama + reverse coverage + blind-spot review | `01-*.md` | 5–9 modules, ≥2 Mermaid diagrams, subagent-verified, user sign-off |
+| **2 Per-module deep dive** | A "7-element card + design trade-offs + retro" per module | `02-{slug}.md` (one each) | All 10 blocks filled, lifecycle diagram, subagent-verified |
+| **3 Re-unification** | v0→v1, architecture diagram, cross-module patterns, cross-card conflicts, upstream backfill | `03-synthesis.md` | One-sentence essence, ≥2 cross-module patterns, conflicts explicitly resolved, backfill table processed |
+| **4 Evolution archaeology (optional)** | Pick modules by interest; funnel-style git archaeology of "how it became what it is" | `04-evolution-{slug}.md` | Timeline diagram + inflection points with commit hashes + why, stability annotations |
 
 ---
 

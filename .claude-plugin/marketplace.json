@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "kuangjia-chaijie",
-      "description": "Framework/codebase topic decomposition pipeline: seed card -> panorama -> per-subsystem 7-element cards -> cross-subsystem synthesis (+ optional evolution archaeology)",
+      "description": "Framework/codebase topic decomposition pipeline: seed card -> panorama -> per-module 7-element cards -> cross-module synthesis (+ optional evolution archaeology)",
       "source": "./",
       "strict": false,
       "skills": [

@@ -458,9 +458,9 @@ skill 里写的具体规则（"无约数词"、"file:line 必填"、"剔除项�
 |---|---|---|---|---|
 | 0. 主题播种 | `00-seed.md` | （可选）关键词概念图 | （免） | 关键词 ≥ 5、显式排除 ≥ 2 |
 | 1. 全景扫描 (A+B) | `01-mental-model.md`、`01-heatmap.md`、`01-panorama.md` | 子模块关系图 + 文件归属图 | `01-panorama-verification.md` | 子模块清单完整、差异点全部决议、**全景图含 ≥ 2 张 Mermaid 图**、**子代理验证已跑且 🔴 全修**、用户能口头答 |
-| 2. 逐子模块深挖 | `02-{subsystem-slug}.md`（每张一份） | 数据生命周期图 | `02-{subsystem-slug}-verification.md`（每张一份）+ `01-panorama-cross-verification.md`（全部 Phase 2 完成后） | 每张卡 6 要素 + 设计取舍 + 生命周期图 + 回顾小节全填、**子代理验证已跑且所有 [BLOCKER]+[MUST-FIX] 全修**、panorama 跨文档复验通过、用户脱卡走查 |
+| 2. 逐子模块深挖 | `02-{module-slug}.md`（每张一份） | 数据生命周期图 | `02-{module-slug}-verification.md`（每张一份）+ `01-panorama-cross-verification.md`（全部 Phase 2 完成后） | 每张卡 6 要素 + 设计取舍 + 生命周期图 + 回顾小节全填、**子代理验证已跑且所有 [BLOCKER]+[MUST-FIX] 全修**、panorama 跨文档复验通过、用户脱卡走查 |
 | 3. 重新归一 | `03-synthesis.md` | 架构总图 | `03-synthesis-verification.md` | v1 一句话本质、架构总图（所有边带名）、跨子模块模式 ≥ 2、跨卡矛盾**显式列出 + 决议**、**上游回填表逐行处置**、子代理验证已跑且 🔴 全修 |
-| 4. 演进溯源（**可选**） | `04-evolution-{subsystem-slug}.md`（每个选中子模块一份） | 演进时间线图（`timeline`/`gitGraph`） | （可选，见该阶段） | 用户选的每个子模块：时间线图 + ≥1 拐点带 commit-hash + why 证据、稳定性标注、回填项已处置 |
+| 4. 演进溯源（**可选**） | `04-evolution-{module-slug}.md`（每个选中子模块一份） | 演进时间线图（`timeline`/`gitGraph`） | （可选，见该阶段） | 用户选的每个子模块：时间线图 + ≥1 拐点带 commit-hash + why 证据、稳定性标注、回填项已处置 |
 
 **产出存放**：默认放在 `notes/kuangjia-chaijie/{topic-slug}/`（项目根下）。如果用户项目结构特殊或已有其他 notes 目录，进入阶段 0 前先问用户确认路径。
 
@@ -773,7 +773,7 @@ S3：[ ] ...
 
 ## 阶段 2：逐子模块深挖
 
-对范围决议中"纳入"的每个子模块，产出一份 `02-{subsystem-slug}.md`，填**七要素卡 + 设计取舍**。
+对范围决议中"纳入"的每个子模块，产出一份 `02-{module-slug}.md`，填**七要素卡 + 设计取舍**。
 
 ### 七要素卡必含小节
 
