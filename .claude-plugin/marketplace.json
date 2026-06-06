@@ -1,0 +1,22 @@
+{
+  "name": "kuangjia-chaijie",
+  "owner": {
+    "name": "eiaao",
+    "email": "Eaxnoeldana213@reincarnate.com"
+  },
+  "metadata": {
+    "description": "Deep-dive decomposition workflow for understanding a framework/codebase topic before writing or presenting about it",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "kuangjia-chaijie",
+      "description": "Framework/codebase topic decomposition pipeline: seed card -> panorama -> per-subsystem 7-element cards -> cross-subsystem synthesis (+ optional evolution archaeology)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/kuangjia-chaijie"
+      ]
+    }
+  ]
+}

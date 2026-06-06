@@ -1,0 +1,12 @@
+# 生成产物（view 层，markdown 才是真相源）
+view.html
+notes/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 会话状态 / 编辑器 / 系统文件
+.remember/
+.DS_Store
+*.swp
