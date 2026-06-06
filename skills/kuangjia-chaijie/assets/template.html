@@ -244,7 +244,7 @@ main.content {
 <header class="topbar">
   <h1 id="topic-name">…</h1>
   <span class="gen-meta" id="gen-meta"></span>
-  <div class="search"><input id="search" type="search" placeholder="搜索文件 / 子系统 / 内容..."></div>
+  <div class="search"><input id="search" type="search" placeholder="搜索文件 / 子模块 / 内容..."></div>
 </header>
 
 <div class="progress" id="progress"></div>
@@ -334,7 +334,7 @@ function renderProgress() {
   const phases = [
     { id: 'phase0', label: 'Phase 0 主题', has: !!DATA.phases.phase0.seed },
     { id: 'phase1', label: 'Phase 1 全景', has: !!DATA.phases.phase1.panorama },
-    { id: 'phase2', label: 'Phase 2 子系统 (' + DATA.phases.phase2.cards.length + ')', has: DATA.phases.phase2.cards.length > 0 },
+    { id: 'phase2', label: 'Phase 2 子模块 (' + DATA.phases.phase2.cards.length + ')', has: DATA.phases.phase2.cards.length > 0 },
     { id: 'phase3', label: 'Phase 3 综合', has: !!DATA.phases.phase3.synthesis },
   ];
   for (const ph of phases) {
@@ -408,7 +408,7 @@ function renderSideNav() {
   for (const v of DATA.phases.phase2.verifications) {
     p2items.push({ id: 'p2:verify:' + v.filename, label: v.filename });
   }
-  if (p2items.length) nav.appendChild(makeSection('📁 Phase 2 子系统深挖', p2items, true));
+  if (p2items.length) nav.appendChild(makeSection('📁 Phase 2 子模块深挖', p2items, true));
 
   // Phase 3
   const p3items = [];
@@ -467,7 +467,7 @@ async function renderPanorama(doc, pano) {
   }
 
   if (pano.subsystems.length) {
-    doc.appendChild(el('h2', { text: '候选子系统（' + pano.subsystems.length + '）' }));
+    doc.appendChild(el('h2', { text: '候选子模块（' + pano.subsystems.length + '）' }));
     const ul = el('ul');
     for (const s of pano.subsystems) {
       ul.appendChild(el('li', { html: '<strong>' + escapeHtml(s.id) + '</strong>: ' + escapeHtml(s.name) }));
@@ -476,7 +476,7 @@ async function renderPanorama(doc, pano) {
   }
 
   if (pano.relations_diagram.length) {
-    doc.appendChild(el('h2', { text: '子系统关系图' }));
+    doc.appendChild(el('h2', { text: '子模块关系图' }));
     await renderMermaid(pano.relations_diagram[0], doc);
   }
   if (pano.ownership_diagram.length) {
@@ -497,7 +497,7 @@ async function renderPanorama(doc, pano) {
   }
 
   // Render any remaining sections not covered above
-  const covered = new Set(['核心抽象草稿 (v0)', '核心抽象草稿', '核心抽象', '候选子系统', '子系统关系图', '文件归属图', '反向覆盖扫描结果', '反向覆盖', '候选盲点检阅', '候选盲点', '盲点检阅', '跨阶段假设清单', '假设', '决议', '差异']);
+  const covered = new Set(['核心抽象草稿 (v0)', '核心抽象草稿', '核心抽象', '候选子模块', '子模块关系图', '文件归属图', '反向覆盖扫描结果', '反向覆盖', '候选盲点检阅', '候选盲点', '盲点检阅', '跨阶段假设清单', '假设', '决议', '差异']);
   const remaining = el('details');
   remaining.appendChild(el('summary', { text: '其他章节' }));
   let any = false;
@@ -572,7 +572,7 @@ async function renderSynthesis(doc, syn) {
   }
 
   if (syn.patterns.length) {
-    doc.appendChild(el('h2', { text: '跨子系统模式归纳（' + syn.patterns.length + '）' }));
+    doc.appendChild(el('h2', { text: '跨子模块模式归纳（' + syn.patterns.length + '）' }));
     const grid = el('div', { cls: 'pattern-grid' });
     for (const p of syn.patterns) {
       const card = el('div', { cls: 'pattern-card' });

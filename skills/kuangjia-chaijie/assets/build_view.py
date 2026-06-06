@@ -155,12 +155,12 @@ def parse_card(filename: str, sections: dict) -> dict:
 
 def parse_panorama(filename: str, sections: dict) -> dict:
     result = {"filename": filename, "raw_sections": sections}
-    rel = find_section(sections, ["子系统关系图"])
+    rel = find_section(sections, ["子模块关系图"])
     own = find_section(sections, ["文件归属图"])
     result["relations_diagram"] = extract_mermaid_blocks(rel)[:1]
     result["ownership_diagram"] = extract_mermaid_blocks(own)[:1]
 
-    subsystems_body = find_section(sections, ["候选子系统"])
+    subsystems_body = find_section(sections, ["候选子模块"])
     subs = []
     pattern = re.compile(r"^###\s+(S\d+)[:\s\-]*(.+?)$", re.MULTILINE)
     for m in pattern.finditer(subsystems_body):
@@ -178,7 +178,7 @@ def parse_panorama(filename: str, sections: dict) -> dict:
 def parse_synthesis(filename: str, sections: dict) -> dict:
     v1_body = find_section(sections, ["核心抽象 v1", "核心抽象"])
     arch_body = find_section(sections, ["架构总图"])
-    patterns_body = find_section(sections, ["跨子系统模式归纳", "跨子系统模式"])
+    patterns_body = find_section(sections, ["跨子模块模式归纳", "跨子模块模式"])
     conflicts_body = find_section(sections, ["跨卡矛盾收敛", "跨卡矛盾"])
     backfill_body = find_section(sections, ["上游回填决议", "上游回填"])
     rejected_body = find_section(sections, ["Rejected verifier findings", "Rejected"])
