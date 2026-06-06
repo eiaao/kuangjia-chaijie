@@ -127,7 +127,7 @@ def parse_verification(filename: str, sections: dict) -> dict:
 
 def parse_card(filename: str, sections: dict) -> dict:
     """Phase 2 card: extract 7 elements + lifecycle + tradeoff + review."""
-    slug = filename[3:-3]  # 02-{slug}.md
+    slug = filename[3:-3]  # 02-S{n}-{slug}.md (slug 含 Sx 前缀)
     elements = {}
     for name in [
         "涉及文件",

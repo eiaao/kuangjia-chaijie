@@ -244,7 +244,7 @@ description: |
 | 触发点 | 验证什么 | 子代理类型 | 报告产物 |
 |---|---|---|---|
 | 完成 Phase 1 全景图（**首验**）| 子模块清单 / 剔除证据 / 关系图 / 文件归属图 vs 源码 | general-purpose | `01-panorama-verification.md` |
-| **完成每张 Phase 2 卡** | 该卡所有事实声明 vs 源码 + **vs panorama 一致性** | general-purpose | `02-{name}-verification.md` |
+| **完成每张 Phase 2 卡** | 该卡所有事实声明 vs 源码 + **vs panorama 一致性** | general-purpose | `02-S{n}-{module-slug}-verification.md` |
 | 全部 Phase 2 卡完成后（**panorama 复验**）| panorama 与所有 Phase 2 卡的跨文档一致性 | general-purpose | `01-panorama-cross-verification.md` |
 | 完成 Phase 3 综合 | v1 抽象 / 架构总图 / 跨子模块模式 / 跨卡矛盾决议 / 上游回填项 vs 源码 + Phase 2 卡 | general-purpose | `03-synthesis-verification.md` |
 
@@ -294,7 +294,7 @@ description: |
 ```
 你是一个验证子代理。你从未见过这张卡或主对话——这是关键。你的任务是用完全新鲜的眼睛把卡的声明对照源码逐条核对。
 
-待验证文件: {绝对路径，如 .../02-builtin-file-memory.md}
+待验证文件: {绝对路径，如 .../02-S1-builtin-file-memory.md}
 项目根目录: {绝对路径，如 /mnt/d/project/github/hermes-agent}
 关联文档（用于跨文档一致性检验）: {可选，如 panorama 路径——见下方第 5 步}
 
@@ -404,8 +404,8 @@ description: |
    主代理回填时另开两段（写在卡片末尾或独立 `0X-fixes.md`）：
 
    `## Fixes applied after verification`（逐条记录修补）
-   - "针对 [BLOCKER #1]，修改了 `02-X.md:L97`，原文 X → 新文 Y"
-   - "针对 [MUST-FIX #2]，修改了 `02-X.md:L11`，原 :10965-10983 → :10959-10983"
+   - "针对 [BLOCKER #1]，修改了 `02-Sx-X.md:L97`，原文 X → 新文 Y"
+   - "针对 [MUST-FIX #2]，修改了 `02-Sx-X.md:L11`，原 :10965-10983 → :10959-10983"
    - "针对 [OPTIONAL #1]，**暂不修**，理由：差异在 1 行内不影响理解"
    - "针对 [NEEDS-MANUAL-VERIFY #1]，已查证：`memory_tool.py:55-57` `get_hermes_home()` 是运行时 env 解析，结论是 X"
 
@@ -458,7 +458,7 @@ skill 里写的具体规则（"无约数词"、"file:line 必填"、"剔除项�
 |---|---|---|---|---|
 | 0. 主题播种 | `00-seed.md` | （可选）关键词概念图 | （免） | 关键词 ≥ 5、显式排除 ≥ 2 |
 | 1. 全景扫描 (A+B) | `01-mental-model.md`、`01-heatmap.md`、`01-panorama.md` | 子模块关系图 + 文件归属图 | `01-panorama-verification.md` | 子模块清单完整、差异点全部决议、**全景图含 ≥ 2 张 Mermaid 图**、**子代理验证已跑且 🔴 全修**、用户能口头答 |
-| 2. 逐子模块深挖 | `02-{module-slug}.md`（每张一份） | 数据生命周期图 | `02-{module-slug}-verification.md`（每张一份）+ `01-panorama-cross-verification.md`（全部 Phase 2 完成后） | 每张卡 6 要素 + 设计取舍 + 生命周期图 + 回顾小节全填、**子代理验证已跑且所有 [BLOCKER]+[MUST-FIX] 全修**、panorama 跨文档复验通过、用户脱卡走查 |
+| 2. 逐子模块深挖 | `02-S{n}-{module-slug}.md`（每张一份） | 数据生命周期图 | `02-S{n}-{module-slug}-verification.md`（每张一份）+ `01-panorama-cross-verification.md`（全部 Phase 2 完成后） | 每张卡 6 要素 + 设计取舍 + 生命周期图 + 回顾小节全填、**子代理验证已跑且所有 [BLOCKER]+[MUST-FIX] 全修**、panorama 跨文档复验通过、用户脱卡走查 |
 | 3. 重新归一 | `03-synthesis.md` | 架构总图 | `03-synthesis-verification.md` | v1 一句话本质、架构总图（所有边带名）、跨子模块模式 ≥ 2、跨卡矛盾**显式列出 + 决议**、**上游回填表逐行处置**、子代理验证已跑且 🔴 全修 |
 | 4. 演进溯源（**可选**） | `04-evolution-{module-slug}.md`（每个选中子模块一份） | 演进时间线图（`timeline`/`gitGraph`） | （可选，见该阶段） | 用户选的每个子模块：时间线图 + ≥1 拐点带 commit-hash + why 证据、稳定性标注、回填项已处置 |
 
@@ -773,7 +773,9 @@ S3：[ ] ...
 
 ## 阶段 2：逐子模块深挖
 
-对范围决议中"纳入"的每个子模块，产出一份 `02-{module-slug}.md`，填**七要素卡 + 设计取舍**。
+对范围决议中"纳入"的每个子模块，产出一份 `02-S{n}-{module-slug}.md`，填**七要素卡 + 设计取舍**。
+
+> **文件名前缀 `S{n}`**：`{n}` 取该子模块在 Phase 1 panorama「候选子模块清单」里的编号（S1/S2/...）。例如 S1「内置文件记忆」→ `02-S1-builtin-file-memory.md`。前缀让卡与全景图编号一一对应、目录里天然按子模块排序，也方便 `build_view.py` 把卡关联回对应子模块。
 
 ### 七要素卡必含小节
 
@@ -1010,9 +1012,9 @@ flowchart TB
 |---|---|---|---|---|---|
 | 1 | 3.0 v1 | "双视图"维度 panorama v0 缺 | 在 v0 后追加修正表 | 直接改 panorama | `01-panorama.md` `[amend from 3.0]` |
 | 2 | 3.1 总图 | S2→S5 边在 panorama 关系图遗漏 | 补一条 `search_messages 数据源` 边 | 直接改原图 | `01-panorama.md` |
-| 3 | 3.2 模式 | frozen-snapshot 模式 S6 卡未提 | S6 卡设计取舍补一句 | 结构修订 → amendments | `02-context-compression-amendments.md` |
-| 4 | 3.3 矛盾 1 | S1/S3 卡对 on_memory_write 各执一词 | 两卡互补一句指明对方 | 直接改两卡末尾 | `02-builtin-file-memory.md` + `02-external-provider.md` |
-| 5 | 验证 BACKFILL | `[BACKFILL-synthesis-S3card-typo]` | `memory_mangaer.py` 拼写错 | 直接改 S3 卡 | `02-memory-provider-plugin.md` |
+| 3 | 3.2 模式 | frozen-snapshot 模式 S6 卡未提 | S6 卡设计取舍补一句 | 结构修订 → amendments | `02-S6-context-compression-amendments.md` |
+| 4 | 3.3 矛盾 1 | S1/S3 卡对 on_memory_write 各执一词 | 两卡互补一句指明对方 | 直接改两卡末尾 | `02-S1-builtin-file-memory.md` + `02-S3-external-provider.md` |
+| 5 | 验证 BACKFILL | `[BACKFILL-synthesis-S3card-typo]` | `memory_mangaer.py` 拼写错 | 直接改 S3 卡 | `02-S3-memory-provider-plugin.md` |
 | 6 | 验证 BACKFILL | 验证者建议方法计数改 10+6+2 | 拒绝（口径分歧） | **拒绝** | 写入下文 `## Rejected verifier findings`，理由：panorama 与 S3 卡当前 7+6+2 口径一致，统一比"按验证者修"更重要 |
 ```
 
@@ -1113,7 +1115,7 @@ git rev-list --count HEAD             # =1 或很小 → 可能 shallow clone，
 ### 每个选中子模块的执行流程（复用卡证据，不重新探索）
 
 ```
-[1] 从 02-{slug}.md 取锚点：涉及文件清单 + 入口符号 + 关键符号（已现成）
+[1] 从 02-S{n}-{slug}.md 取锚点：涉及文件清单 + 入口符号 + 关键符号（已现成）
 
 [2] 定演进窗口
     git log --diff-filter=A --oneline -- <该子模块文件>   # 子模块诞生 commit
@@ -1141,7 +1143,7 @@ git rev-list --count HEAD             # =1 或很小 → 可能 shallow clone，
 - `## 演进时间线`（**必含 Mermaid `timeline` 或 `gitGraph`**）：诞生 → 每个拐点（版本/日期/commit）→ 现状
 - `## 拐点详解`：每个拐点一段——改了什么（`file:line` / commit-hash）+ 为什么（ADR/PR/message 引用）+ 留下的疤痕（兼容层 / 弃用残留）
 - `## 稳定性标注`：哪些文件/设计自 vX 起未变（= 写文章可放心下结论）、哪些仍在 churn（= 谨慎，可能很快过时）
-- `## 回填 Phase 2 设计取舍`：把演进发现接回 `02-{slug}.md` 的"设计取舍"段——**区分哪些取舍是深思熟虑、哪些是历史包袱**。这是本阶段对文章写作最值钱的输出。
+- `## 回填 Phase 2 设计取舍`：把演进发现接回 `02-S{n}-{slug}.md` 的"设计取舍"段——**区分哪些取舍是深思熟虑、哪些是历史包袱**。这是本阶段对文章写作最值钱的输出。
 
 ### 验证（可选，轻量）
 
@@ -1152,7 +1154,7 @@ git rev-list --count HEAD             # =1 或很小 → 可能 shallow clone，
 - 时间线图画完 + ≥ 1 个拐点带 **commit-hash** + why 证据（ADR/PR/message）
 - 所有 commit-hash / 版本号 / `file:line` **真实可查**（沿用命根子：不猜，每条带证据）
 - 稳定性标注完成（至少分出"已定型 vs 仍 churn"两类）
-- 回填项已处置：若发现某"设计取舍"实为历史包袱，已在 `02-{slug}.md` 标注（小修订直接改 + 注明 `[amend from Phase 4]`）
+- 回填项已处置：若发现某"设计取舍"实为历史包袱，已在 `02-S{n}-{slug}.md` 标注（小修订直接改 + 注明 `[amend from Phase 4]`）
 - **该子模块 `04-*.md` 落盘后已重跑 `build_view.py`**，`view.html` 增量更新
 
 ### 不允许的反模式
